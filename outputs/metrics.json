@@ -1,0 +1,270 @@
+{
+  "hourly": {
+    "Day 1 (1-24h)": {
+      "SmogCast": {
+        "MAE": 25.868008015792167,
+        "RMSE": 45.92979710134932,
+        "interval_coverage": 0.7352486061191573
+      },
+      "Persistence (value now)": {
+        "MAE": 38.343265533447266,
+        "RMSE": 68.70623016357422
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 32.567054748535156,
+        "RMSE": 55.16980743408203
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 37.2786750793457,
+        "RMSE": 56.883235931396484
+      }
+    },
+    "Day 2 (25-48h)": {
+      "SmogCast": {
+        "MAE": 29.012426406649617,
+        "RMSE": 51.313984710756635,
+        "interval_coverage": 0.7276564384295859
+      },
+      "Persistence (value now)": {
+        "MAE": 47.3452033996582,
+        "RMSE": 80.57902526855469
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 37.3624267578125,
+        "RMSE": 61.898685455322266
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 37.204734802246094,
+        "RMSE": 57.03553771972656
+      }
+    },
+    "Day 3 (49-72h)": {
+      "SmogCast": {
+        "MAE": 30.031633004785284,
+        "RMSE": 52.78139513590698,
+        "interval_coverage": 0.720009820355226
+      },
+      "Persistence (value now)": {
+        "MAE": 49.98280715942383,
+        "RMSE": 83.52537536621094
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 39.43680953979492,
+        "RMSE": 64.63424682617188
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 37.15152359008789,
+        "RMSE": 56.983673095703125
+      }
+    },
+    "Days 4-6 (73-144h)": {
+      "SmogCast": {
+        "MAE": 30.36995475025763,
+        "RMSE": 53.44819934972754,
+        "interval_coverage": 0.7238241364405349
+      },
+      "Persistence (value now)": {
+        "MAE": 52.84654235839844,
+        "RMSE": 86.43392944335938
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 41.11886978149414,
+        "RMSE": 66.91764068603516
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 36.992286682128906,
+        "RMSE": 56.983802795410156
+      }
+    }
+  },
+  "daily_mean": {
+    "Day 1": {
+      "SmogCast": {
+        "MAE": 17.112682928409207,
+        "category_accuracy": 0.6519568690095847
+      },
+      "Persistence (value now)": {
+        "MAE": 29.260202407836914,
+        "category_accuracy": 0.5413338658146964
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 21.080095291137695,
+        "category_accuracy": 0.5880591054313099
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 29.308225631713867,
+        "category_accuracy": 0.4496805111821086
+      }
+    },
+    "Day 2": {
+      "SmogCast": {
+        "MAE": 20.99551744752432,
+        "category_accuracy": 0.6009486492060219
+      },
+      "Persistence (value now)": {
+        "MAE": 38.43846130371094,
+        "category_accuracy": 0.447102495359868
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 27.442625045776367,
+        "category_accuracy": 0.5023716230150547
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 29.058191299438477,
+        "category_accuracy": 0.45308310991957107
+      }
+    },
+    "Day 3": {
+      "SmogCast": {
+        "MAE": 22.23265125077876,
+        "category_accuracy": 0.5753595997498436
+      },
+      "Persistence (value now)": {
+        "MAE": 41.663551330566406,
+        "category_accuracy": 0.40421096518657496
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 30.13111114501953,
+        "category_accuracy": 0.4650823431311236
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 29.155799865722656,
+        "category_accuracy": 0.4515322076297686
+      }
+    },
+    "Day 4": {
+      "SmogCast": {
+        "MAE": 22.710182991561,
+        "category_accuracy": 0.5742261528742894
+      },
+      "Persistence (value now)": {
+        "MAE": 43.99987030029297,
+        "category_accuracy": 0.3773425984417772
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 30.94332504272461,
+        "category_accuracy": 0.44809433564961043
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 29.149795532226562,
+        "category_accuracy": 0.45230574857864814
+      }
+    },
+    "Day 5": {
+      "SmogCast": {
+        "MAE": 22.441736485792042,
+        "category_accuracy": 0.5718816067653277
+      },
+      "Persistence (value now)": {
+        "MAE": 44.68312072753906,
+        "category_accuracy": 0.3773784355179704
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 31.79601287841797,
+        "category_accuracy": 0.43953488372093025
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 28.98140525817871,
+        "category_accuracy": 0.45644820295983085
+      }
+    },
+    "Day 6": {
+      "SmogCast": {
+        "MAE": 22.852531387004937,
+        "category_accuracy": 0.5714285714285714
+      },
+      "Persistence (value now)": {
+        "MAE": 45.99082565307617,
+        "category_accuracy": 0.35938500960922487
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 34.03192138671875,
+        "category_accuracy": 0.43326927183429426
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 28.772401809692383,
+        "category_accuracy": 0.45419602818705956
+      }
+    }
+  },
+  "n_forecasts": 28816,
+  "daily_mean_smog_season": {
+    "Day 1": {
+      "SmogCast": {
+        "MAE": 27.676460099929596,
+        "category_accuracy": 0.6386740331491713
+      },
+      "Persistence (value now)": {
+        "MAE": 45.712223052978516,
+        "category_accuracy": 0.581767955801105
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 35.00181579589844,
+        "category_accuracy": 0.5734806629834254
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 48.513423919677734,
+        "category_accuracy": 0.4718232044198895
+      }
+    },
+    "Day 2": {
+      "SmogCast": {
+        "MAE": 35.00142277734438,
+        "category_accuracy": 0.5800344234079173
+      },
+      "Persistence (value now)": {
+        "MAE": 61.95145034790039,
+        "category_accuracy": 0.48823866896156054
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 46.605865478515625,
+        "category_accuracy": 0.47619047619047616
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 48.05673599243164,
+        "category_accuracy": 0.4750430292598967
+      }
+    },
+    "Day 3": {
+      "SmogCast": {
+        "MAE": 37.67043289782886,
+        "category_accuracy": 0.5562757807896288
+      },
+      "Persistence (value now)": {
+        "MAE": 67.83403015136719,
+        "category_accuracy": 0.4295816146140248
+      },
+      "Persistence (last 24h mean)": {
+        "MAE": 51.13576126098633,
+        "category_accuracy": 0.44843842074248674
+      },
+      "Climatology (station x month x hour)": {
+        "MAE": 48.245121002197266,
+        "category_accuracy": 0.47672362993517975
+      }
+    }
+  },
+  "n_forecasts_smog_season": 1810,
+  "data": "real",
+  "train_period": [
+    "2019-01-01 00:00:00+00:00",
+    "2025-09-24 22:00:00"
+  ],
+  "test_period": [
+    "2025-10-01 18:00:00+00:00",
+    "2026-10-20 22:00:00"
+  ],
+  "n_train_rows": 706424,
+  "n_stations": 15,
+  "trained_at": "2026-10-22T09:41:53.248388+00:00",
+  "importance": {
+    "baseline_MAE": 29.203155788752746,
+    "MAE_increase_when_shuffled": {
+      "PM2.5 history": 12.90844460495805,
+      "Weather now": 0.8666532023585454,
+      "Weather forecast (target hour)": 11.828985362737704,
+      "Crop fires": 0.13422120359527767,
+      "Calendar": 6.864844414520604
+    }
+  }
+}

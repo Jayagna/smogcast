@@ -19,22 +19,27 @@ if (Test-Path "workflows-to-move") {
     Move-Item "workflows-to-move\*.yml" ".github\workflows\" -Force
     Remove-Item "workflows-to-move" -Recurse -Force
 }
-if (-not (Test-Path ".git")) { & $git init -b main 2>&1 | Tee-Object -FilePath $log -Append }
+$env:GIT_TERMINAL_PROMPT = "0"          # fail instead of hanging on a hidden password prompt
+if (-not (Test-Path ".git")) {
+    & $git init -b main 2>&1 | Tee-Object -FilePath $log -Append
+    & $git remote add origin $url
+    # if the GitHub repo already has commits, build on top of them instead of clashing
+    & $git fetch origin main 2>&1 | Tee-Object -FilePath $log -Append
+    if ($LASTEXITCODE -eq 0) { & $git reset --soft FETCH_HEAD 2>&1 | Tee-Object -FilePath $log -Append }
+}
 & $git config user.name "Jayagna Patel"
 & $git config user.email "jayagnapatel15@gmail.com"
 & $git add -A
 $msg = @"
-SmogCast: PM2.5 forecasting for Delhi NCR with crop-fire attribution
+SmogCast: trained model, forecasts and data-pipeline fixes
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01YRKFSQZtGpQSbqtH92haBe
 "@
 & $git diff --cached --quiet
 if ($LASTEXITCODE -ne 0) { & $git commit -m $msg 2>&1 | Tee-Object -FilePath $log -Append }
-& $git remote remove origin 2>$null
-& $git remote add origin $url
+& $git remote set-url origin $url 2>$null
 Write-Host "A GitHub sign-in window may open: approve it to let Git push." -ForegroundColor Yellow
-$env:GIT_TERMINAL_PROMPT = "0"          # fail instead of hanging on a hidden password prompt
 & $git push -u origin main 2>&1 | Tee-Object -FilePath $log -Append
 if ($LASTEXITCODE -eq 0) { ">>> PUSHED to $url" | Tee-Object -FilePath $log -Append }
 else { ">>> PUSH FAILED (exit $LASTEXITCODE)" | Tee-Object -FilePath $log -Append }
