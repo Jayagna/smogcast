@@ -1,0 +1,40 @@
+# Commit everything (code, trained model, outputs) and push to the repo in github_repo.txt.
+$ErrorActionPreference = "Continue"     # git writes progress to stderr; don't treat it as fatal
+Set-Location -Path $PSScriptRoot
+$log = Join-Path $PSScriptRoot "run_log.txt"
+$url = (Get-Content "github_repo.txt" -Raw).Trim()
+
+# Find git: PATH first, then the copy bundled with GitHub Desktop
+$git = (Get-Command git -ErrorAction SilentlyContinue).Source
+if (-not $git) {
+    $cand = Get-ChildItem "$env:LOCALAPPDATA\GitHubDesktop\app-*\resources\app\git\cmd\git.exe" -ErrorAction SilentlyContinue |
+            Sort-Object FullName -Descending | Select-Object -First 1
+    if ($cand) { $git = $cand.FullName }
+}
+if (-not $git) { ">>> Git not found. Install it with: winget install Git.Git" | Tee-Object -FilePath $log -Append; exit 1 }
+">>> Using git at $git" | Tee-Object -FilePath $log -Append
+
+if (Test-Path "workflows-to-move") {
+    New-Item -ItemType Directory -Force ".github\workflows" | Out-Null
+    Move-Item "workflows-to-move\*.yml" ".github\workflows\" -Force
+    Remove-Item "workflows-to-move" -Recurse -Force
+}
+if (-not (Test-Path ".git")) { & $git init -b main 2>&1 | Tee-Object -FilePath $log -Append }
+& $git config user.name "Jayagna Patel"
+& $git config user.email "jayagnapatel15@gmail.com"
+& $git add -A
+$msg = @"
+SmogCast: PM2.5 forecasting for Delhi NCR with crop-fire attribution
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01YRKFSQZtGpQSbqtH92haBe
+"@
+& $git diff --cached --quiet
+if ($LASTEXITCODE -ne 0) { & $git commit -m $msg 2>&1 | Tee-Object -FilePath $log -Append }
+& $git remote remove origin 2>$null
+& $git remote add origin $url
+Write-Host "A GitHub sign-in window may open: approve it to let Git push." -ForegroundColor Yellow
+$env:GIT_TERMINAL_PROMPT = "0"          # fail instead of hanging on a hidden password prompt
+& $git push -u origin main 2>&1 | Tee-Object -FilePath $log -Append
+if ($LASTEXITCODE -eq 0) { ">>> PUSHED to $url" | Tee-Object -FilePath $log -Append }
+else { ">>> PUSH FAILED (exit $LASTEXITCODE)" | Tee-Object -FilePath $log -Append }
